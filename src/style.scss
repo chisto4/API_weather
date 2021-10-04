@@ -1,0 +1,120 @@
+
+body{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom,#99cddda8 30%, #5390ccb0 80%);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.hello{
+  font-size: 48px;
+  font-family: 'Annie Use Your Telescope', cursive;
+  margin-bottom: 10px;
+}
+
+//AUTO COMPLITE
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       #map {
+        width: 95vw;
+        height: 45vh;
+        border-radius: 10px;
+        box-shadow: -23px 20px 50px rgba(81, 81, 100, 0.644),
+        15px -10px 35px rgba(163, 152, 135, 0.493);
+      }
+      
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+      #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+      }
+      
+      #infowindow-content .title {
+        font-weight: bold;
+      }
+      
+      #infowindow-content {
+        display: none;
+      }
+      
+      #map #infowindow-content {
+        display: inline;
+      }
+      
+      .pac-card {
+        background-color: #fff;
+        border: 0;
+        border-radius: 2px;
+        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+        margin: 10px;
+        padding: 0 0.5em;
+        font: 400 18px Roboto, Arial, sans-serif;
+        overflow: hidden;
+        font-family: Roboto;
+        padding: 0;
+        border-radius: 20px;
+        box-shadow: 3px 5px 10px gray;
+      }
+      
+      #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
+      
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+      
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+      
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+      
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+      
+      #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+      }
+
+      //WEATHER TABLE
+
+      .weather_table_wrapper{
+        width: 95vw;
+        margin-top: 2vh;
+        table{
+          border-radius: 1rem;
+          background: white;
+        }
+      }
+      
