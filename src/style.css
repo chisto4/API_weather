@@ -115,6 +115,7 @@ body {
 }
 
 .weather_table_wrapper {
+  visibility: hidden;
   width: 95vw;
   margin-top: 2vh;
 }
@@ -122,5 +123,9 @@ body {
 .weather_table_wrapper table {
   border-radius: 1rem;
   background: white;
+}
+
+.visible {
+  visibility: visible;
 }
 /*# sourceMappingURL=style.css.map */

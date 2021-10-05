@@ -110,11 +110,16 @@ body{
       //WEATHER TABLE
 
       .weather_table_wrapper{
+        visibility: hidden;
         width: 95vw;
         margin-top: 2vh;
         table{
           border-radius: 1rem;
           background: white;
         }
+      }
+
+      .visible{
+        visibility: visible;
       }
       

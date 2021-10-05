@@ -1,25 +1,4 @@
-/*
- * Copyright 2019 Google LLC. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* eslint-disable no-undef, @typescript-eslint/no-unused-vars, no-unused-vars */
 import "./style.css";
-// require("./JS/script.js");
-
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 export let geometriLocationLang = 0;
 export let geometriLocationLate = 0;
 
@@ -51,9 +30,6 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
 
   const autocomplete = new google.maps.places.Autocomplete(input, options);
 
-  // Bind the map's bounds (viewport) property to the autocomplete object,
-  // so that the autocomplete requests use the current map bounds for the
-  // bounds option in the request.
   autocomplete.bindTo("bounds", map);
 
   const infowindow = new google.maps.InfoWindow();
@@ -82,13 +58,10 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
     
     
     if (!place.geometry || !place.geometry.location) {
-      // User entered the name of a Place that was not suggested and
-      // pressed the Enter key, or the Place Details request failed.
       window.alert("No details available for input: '" + place.name + "'");
       return;
     }
     
-    // If the place has a geometry, then present it on a map.
     if (place.geometry.viewport) {
       map.fitBounds(place.geometry.viewport);
     } else {
@@ -110,7 +83,6 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
     
   });
   
-  // Sets a listener on a radio button to change the filter type on Places
   // Autocomplete.
   function setupClickListener(id, types) {
     const radioButton = document.getElementById(id) as HTMLInputElement;
@@ -169,6 +141,7 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
   async function GetWather (){
 
     const table: HTMLElement | null = document.getElementById("createTable")
+    const tableHidden: HTMLElement | null = document.getElementById("tableHidden")
 
     let Position = `&lat=${geometriLocationLate}&lon=${geometriLocationLang}&key=3e5a7edcafad4a91810e3f2484395f59`;
     const weatherURL: string = "http://api.weatherbit.io/v2.0/forecast/daily?";
@@ -177,17 +150,31 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
     if (getWeatherApi){
       let resWeather = await (await getWeatherApi).json();
       console.log("weather response", resWeather);
-
+      if(resWeather){
+      tableHidden?.classList="visible";
+      }
       let weatherArr: string[] = [];
       weatherArr = resWeather.data;
-      weatherArr.map((day, index) => {
-        let trd = document.createElement('tr');
-        let tdh = document.createElement('th');
+      weatherArr.map((day) => {
+        let createTR = document.createElement('tr');
+        let createTH = document.createElement('th');
+        let createTD_maxTemp = document.createElement('td');
+        let createTD_minTemp = document.createElement('td');
+        let createTD_Description = document.createElement('td');
         //@ts-ignore
-        tdh.innerText = day.wind_cdir
-        trd.append(tdh)
-        table?.append(trd)
-        console.log('MAP WORK', tdh)
+        createTH.innerText = day.datetime;
+        createTR.append(createTH);
+                //@ts-ignore
+        createTD_maxTemp.innerText = day.app_max_temp
+        createTR.append(createTD_maxTemp);
+                //@ts-ignore
+        createTD_minTemp.innerText = day.app_min_temp
+        createTR.append(createTD_minTemp);
+                 //@ts-ignore
+        createTD_Description.innerText = day.weather.description
+        createTR.append(createTD_Description);
+        table?.append(createTR)
+        console.log('MAP WORK', createTR)
       })
       console.log("ARRAY", weatherArr)
 
@@ -197,7 +184,6 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
     }
     
   }
-  const test = document.getElementById("test") as HTMLElement 
 
 }
 export { initMap };
