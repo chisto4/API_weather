@@ -1,6 +1,8 @@
 body {
-  height: 100vh;
   width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,6 +16,8 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #99cddda8), color-stop(80%, #5390ccb0));
   background: linear-gradient(to bottom, #99cddda8 30%, #5390ccb0 80%);
   font-family: 'Rajdhani', sans-serif;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .hello {
@@ -24,30 +28,29 @@ body {
 
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-#map {
+.search_wrapper {
+  width: 55vw;
+  height: 35vh;
+  -webkit-transition: 1.2s;
+  transition: 1.2s;
+}
+
+.widthMap {
   width: 95vw;
-  height: 45vh;
+  height: 65vh;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   -webkit-box-shadow: -23px 20px 50px rgba(81, 81, 100, 0.644), 15px -10px 35px rgba(163, 152, 135, 0.493);
           box-shadow: -23px 20px 50px rgba(81, 81, 100, 0.644), 15px -10px 35px rgba(163, 152, 135, 0.493);
 }
 
-/* Optional: Makes the sample page fill the window. */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 #description {
-  font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-}
-
-#infowindow-content .title {
-  font-weight: bold;
 }
 
 #infowindow-content {
@@ -59,6 +62,7 @@ body {
 }
 
 .pac-card {
+  font-family: 'Annie Use Your Telescope', cursive;
   background-color: #fff;
   border: 0;
   border-radius: 2px;
@@ -66,7 +70,7 @@ body {
           box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
   margin: 10px;
   padding: 0 0.5em;
-  font: 400 18px Roboto, Arial, sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   overflow: hidden;
   font-family: Roboto;
   padding: 0;
@@ -78,6 +82,7 @@ body {
 #pac-container {
   padding-bottom: 12px;
   margin-right: 12px;
+  margin-top: 10px;
 }
 
 .pac-controls {
@@ -97,7 +102,8 @@ body {
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
-  padding: 0 11px 0 13px;
+  padding: 4px 11px 4px 13px;
+  border-radius: 5px;
   text-overflow: ellipsis;
   width: 400px;
 }
@@ -107,15 +113,36 @@ body {
 }
 
 #title {
+  font-family: 'Rajdhani', sans-serif;
   color: #fff;
-  background-color: #4d90fe;
-  font-size: 25px;
-  font-weight: 500;
+  background-color: #123e86a6;
+  font-size: 16px;
+  font-weight: 400;
   padding: 6px 12px;
 }
 
+#title button {
+  border: 1px solid rgba(165, 160, 160, 0.39);
+  background: none;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.678);
+  font-size: 12px;
+  font-weight: 100;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+#title button:hover {
+  background: white;
+  color: black;
+}
+
+.chekIiputWrapper {
+  display: none;
+}
+
 .weather_table_wrapper {
-  visibility: hidden;
+  display: none;
   width: 95vw;
   margin-top: 2vh;
 }
@@ -126,6 +153,6 @@ body {
 }
 
 .visible {
-  visibility: visible;
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

@@ -4,6 +4,8 @@ export let geometriLocationLate = 0;
 
 async function initMap(geometriLocationLang: number | undefined, geometriLocationLate: number | undefined): Promise<void> {
 
+  const table: HTMLElement | any = document.getElementById("createTable");
+
   const map = new google.maps.Map(
     document.getElementById("map") as HTMLElement,
     {
@@ -79,6 +81,7 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
 
     if(place){
       GetWather();
+        table.innerHTML = "";
     }
     
   });
@@ -131,30 +134,26 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
     input.value = "";
   });
 
-  const createTable = (td) => {
-    let newTR = document.createElement('tr');
-    let newTH = document.createElement('th')
-    newTH.innerText = td.wind_cdir;
-
-  }
-
   async function GetWather (){
 
-    const table: HTMLElement | null = document.getElementById("createTable")
-    const tableHidden: HTMLElement | null = document.getElementById("tableHidden")
+    const tableHidden: any = document.getElementById("tableHidden")
 
     let Position = `&lat=${geometriLocationLate}&lon=${geometriLocationLang}&key=3e5a7edcafad4a91810e3f2484395f59`;
     const weatherURL: string = "http://api.weatherbit.io/v2.0/forecast/daily?";
     let getWeatherApi = fetch(weatherURL+Position);
     
     if (getWeatherApi){
+
       let resWeather = await (await getWeatherApi).json();
       console.log("weather response", resWeather);
+
       if(resWeather){
-      tableHidden?.classList="visible";
+      tableHidden.style.display = "block";
       }
+
       let weatherArr: string[] = [];
-      weatherArr = resWeather.data;
+        weatherArr = resWeather.data;
+
       weatherArr.map((day) => {
         let createTR = document.createElement('tr');
         let createTH = document.createElement('th');
@@ -175,15 +174,24 @@ async function initMap(geometriLocationLang: number | undefined, geometriLocatio
         createTR.append(createTD_Description);
         table?.append(createTR)
         console.log('MAP WORK', createTR)
-      })
-      console.log("ARRAY", weatherArr)
-
+      })      
 
     } else {
       console.log("Bad request", getWeatherApi)
     }
-    
   }
+
+  const descriptionButton: HTMLElement | any = document.getElementById("description_search");
+  console.log(descriptionButton)
+  const Chek_input_wrapper: HTMLElement | any = document.getElementById("chek_wrapper");
+  
+  const visibleFunction = (elem: HTMLElement) => {
+    elem.classList.toggle("visible");
+  }
+  descriptionButton.addEventListener('click', () => visibleFunction(Chek_input_wrapper));
+  const searchMap = document.getElementById("search_wrapper") as HTMLElement;
+  const inputWrapper = document.getElementById("pac-input") as HTMLInputElement;
+  inputWrapper.addEventListener('click', () => searchMap.classList.add('widthMap'));
 
 }
 export { initMap };
