@@ -1,0 +1,158 @@
+body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #99cddda8), color-stop(80%, #5390ccb0));
+  background: linear-gradient(to bottom, #99cddda8 30%, #5390ccb0 80%);
+  font-family: 'Rajdhani', sans-serif;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.hello {
+  font-size: 48px;
+  font-family: 'Annie Use Your Telescope', cursive;
+  margin-bottom: 10px;
+}
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+.search_wrapper {
+  width: 55vw;
+  height: 35vh;
+  -webkit-transition: 1.2s;
+  transition: 1.2s;
+}
+
+.widthMap {
+  width: 95vw;
+  height: 65vh;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: -23px 20px 50px rgba(81, 81, 100, 0.644), 15px -10px 35px rgba(163, 152, 135, 0.493);
+          box-shadow: -23px 20px 50px rgba(81, 81, 100, 0.644), 15px -10px 35px rgba(163, 152, 135, 0.493);
+}
+
+#description {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  font-family: 'Annie Use Your Telescope', cursive;
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  padding: 0 0.5em;
+  font-family: 'Rajdhani', sans-serif;
+  overflow: hidden;
+  font-family: Roboto;
+  padding: 0;
+  border-radius: 20px;
+  -webkit-box-shadow: 3px 5px 10px gray;
+          box-shadow: 3px 5px 10px gray;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+  margin-top: 10px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 4px 11px 4px 13px;
+  border-radius: 5px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  font-family: 'Rajdhani', sans-serif;
+  color: #fff;
+  background-color: #123e86a6;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px 12px;
+}
+
+#title button {
+  border: 1px solid rgba(165, 160, 160, 0.39);
+  background: none;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.678);
+  font-size: 12px;
+  font-weight: 100;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+#title button:hover {
+  background: white;
+  color: black;
+}
+
+.chekIiputWrapper {
+  display: none;
+}
+
+.weather_table_wrapper {
+  display: none;
+  width: 95vw;
+  margin-top: 2vh;
+}
+
+.weather_table_wrapper table {
+  border-radius: 1rem;
+  background: white;
+}
+
+.visible {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */
